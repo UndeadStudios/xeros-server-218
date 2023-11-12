@@ -10,6 +10,7 @@ import io.xeros.content.fireofexchange.FireOfExchangeBurnPrice;
 import io.xeros.content.referral.ReferralCode;
 import io.xeros.model.collisionmap.doors.DoorDefinition;
 import io.xeros.model.definitions.ItemDef;
+import io.xeros.model.definitions.ItemStats;
 import io.xeros.model.definitions.ShopDef;
 import io.xeros.model.entity.npc.NPCHandler;
 import io.xeros.model.entity.player.Player;
@@ -72,15 +73,16 @@ public class Reload extends Command {
 
 			break;
 
-		case "items":
-			try {
-				ItemDef.load();
-				player.sendMessage("@blu@Reloaded Items.");
-			} catch (Exception e) {
-				player.sendMessage("@blu@Unable to reload items, check console.");
-				e.printStackTrace();
-			}
-			break;
+			case "items":
+				try {
+					ItemDef.load();
+					ItemStats.load();
+					player.sendMessage("@blu@Reloaded Items.");
+				} catch (Exception e) {
+					player.sendMessage("@blu@Unable to reload items, check console.");
+					e.printStackTrace();
+				}
+				break;
 
 		case "objects":
 			try {

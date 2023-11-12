@@ -1801,6 +1801,9 @@ public class Player extends Entity {
         isFullBody = ItemDef.forId(playerEquipment[playerChest]).getEquipmentModelType() == EquipmentModelType.FULL_BODY;
         getPA().updateRunningToggle();
         getPA().setConfig(427, acceptAid ? 1 : 0);
+        getPA().sendConfig(2951, 127293816);
+        getPA().sendConfig(491, 0);
+        getPA().sendConfig(2924, 2);
         potions.resetOverload();
 
         if (completedTutorial) {
